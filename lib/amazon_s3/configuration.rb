@@ -13,8 +13,6 @@ module AmazonS3
       end
     end
 
-
-
     def initialize
       @config = {
         :access_key_id      => nil,
@@ -22,12 +20,6 @@ module AmazonS3
         :bucket             => nil,
         :region             => nil,
         :endpoint          => nil,
-        # :port              => nil,
-        # :ssl               => nil,
-        # :private           => false,
-        # :expires           => nil,
-        :secure            => false,
-        # :proxy             => false,
         :attachments_folder => nil,
         :thumbnails_folder  => nil,
       }
@@ -76,30 +68,6 @@ module AmazonS3
     def endpoint
       @config[:endpoint]
     end
-
-    # def port
-      # @config[:port]
-    # end
-
-    # def ssl
-      # @config[:ssl]
-    # end
-
-    # def expires
-      # @config[:expires]
-    # end
-
-    # def private?
-      # @config[:private]
-    # end
-
-    # def secure?
-      # @config[:secure]
-    # end
-
-    # def proxy?
-      # @config[:proxy]
-    # end
 
     def attachments_folder
       str = @config[:attachments_folder]
