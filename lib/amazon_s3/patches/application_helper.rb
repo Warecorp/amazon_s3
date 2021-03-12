@@ -6,8 +6,8 @@ ApplicationHelper.class_eval do
         data: {thumbnail: thumbnail_path(attachment)}
       ),
       AmazonS3::Connection.object_url(attachment.disk_filename_s3),
-      title: attachment.filename,
+      title: attachment.filename
+      # target: :_blank
     )
   end
-  
 end
