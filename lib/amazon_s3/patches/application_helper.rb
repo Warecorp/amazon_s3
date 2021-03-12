@@ -3,7 +3,8 @@ ApplicationHelper.class_eval do
     link_to(
       image_tag(
         attachment.thumbnail_s3, 
-        data: {thumbnail: thumbnail_path(attachment)}
+        data: {thumbnail: thumbnail_path(attachment)},
+        target: :_blank
       ),
       AmazonS3::Connection.object_url(attachment.disk_filename_s3),
       title: attachment.filename,
