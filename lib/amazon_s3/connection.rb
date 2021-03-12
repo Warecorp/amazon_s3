@@ -41,8 +41,8 @@ module AmazonS3
         options[:body] = data
         # options[:acl] = 'private'
         options[:acl] = :public_read unless @@config.private?
-        # object.put(options)
-        object.write(data, options)
+        object.put(options)
+        # object.put(data, options)
       end
 
       def delete(filename, target_folder = @@config.attachments_folder)
