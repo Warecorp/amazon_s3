@@ -39,8 +39,8 @@ module AmazonS3
         options[:content_type] = content_type if content_type
         options[:content_disposition] = "inline; filename=#{ERB::Util.url_encode(original_filename)}"
         options[:body] = data
-        # options[:acl] = 'private'
-        options[:acl] = :public_read unless @@config.private?
+        options[:acl] = 'private'
+        # options[:acl] = :public_read unless @@config.private?
         object.put(options)
         # object.put(data, options)
       end
@@ -52,14 +52,14 @@ module AmazonS3
 
       def object_url(filename, target_folder = @@config.attachments_folder)
         object = self.object(filename, target_folder)
-        if self.private?
-          options = {:secure => @@config.secure?}
-          options[:expires] = @@config.expires unless @@config.expires.nil?
-          object.url_for(:read, options).to_s
-        else
-          object.public_url(:secure => @@config.secure?).to_s
-        end
-        # object.presigned_url(:get, expires_in: 600)
+        # if self.private?
+          # options = {:secure => @@config.secure?}
+          # options[:expires] = @@config.expires unless @@config.expires.nil?
+          # object.url_for(:read, options).to_s
+        # else
+          # object.public_url(:secure => @@config.secure?).to_s
+        # end
+        object.presigned_url(:get, expires_in: 600)
       end
 
       def get(filename, target_folder = @@config.attachments_folder)

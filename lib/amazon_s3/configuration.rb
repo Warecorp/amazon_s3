@@ -24,8 +24,8 @@ module AmazonS3
         :endpoint          => nil,
         # :port              => nil,
         # :ssl               => nil,
-        :private           => false,
-        :expires           => nil,
+        # :private           => false,
+        # :expires           => nil,
         :secure            => false,
         # :proxy             => false,
         :attachments_folder => nil,
@@ -85,17 +85,17 @@ module AmazonS3
       # @config[:ssl]
     # end
 
-    def expires
-      @config[:expires]
-    end
+    # def expires
+      # @config[:expires]
+    # end
 
-    def private?
-      @config[:private]
-    end
+    # def private?
+      # @config[:private]
+    # end
 
-    def secure?
-      @config[:secure]
-    end
+    # def secure?
+      # @config[:secure]
+    # end
 
     # def proxy?
       # @config[:proxy]
