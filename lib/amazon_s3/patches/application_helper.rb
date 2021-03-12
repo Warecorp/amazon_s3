@@ -7,7 +7,6 @@ ApplicationHelper.class_eval do
       ),
       AmazonS3::Connection.object_url(attachment.disk_filename_s3),
       title: attachment.filename,
-      target: :_blank
     )
   end
   
